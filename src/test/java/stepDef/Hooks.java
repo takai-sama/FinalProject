@@ -2,6 +2,9 @@ package stepDef;
 
 import io.cucumber.java.*;
 
+import static helper.utility.quitDriver;
+import static helper.utility.startDriver;
+
 
 public class Hooks {
     @BeforeAll
@@ -15,10 +18,10 @@ public class Hooks {
 
     @Before
     public void beforeTest(){
-
+        startDriver();
     }
     @After
-    public void afterTest(){
-
+    public void afterTest() throws InterruptedException {
+        quitDriver();
     }
 }
