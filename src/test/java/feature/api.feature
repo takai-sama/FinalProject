@@ -36,3 +36,12 @@ Feature: Test Automation Rest API
     And hit api update data
     Then validation status code is equals 200
     Then validation response body post update data
+    Then validation response json with JSONSchema "post_create_newuser_dummyapi.json"
+
+  @api
+  Scenario: Test Get List of Tags
+    Given prepare url for "HOST_DUMMYAPI_TAG"
+    And hit api get list tag
+    Then validation status code is equals 200
+    Then validation response body get list tag
+    Then validation response json with JSONSchema "get_list_tag_dummyapi.json"

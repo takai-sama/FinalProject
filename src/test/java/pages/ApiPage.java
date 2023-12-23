@@ -23,6 +23,9 @@ public class ApiPage {
             case "CREATE_NEW_USERS":
                 setURL= Endpoint.CREATE_NEW_USERS;
                 break;
+            case "HOST_DUMMYAPI_TAG":
+                setURL= Endpoint.HOST_DUMMYAPI_TAG;
+                break;
             default:
                 System.out.println("No option");
         }
@@ -102,5 +105,22 @@ public class ApiPage {
         assertThat(registerDate).isNotNull();
         assertThat(updatedDate).isNotNull();
     }
+
+    public void hitApiGetListTag() {
+        res= getListUsers(setURL);
+    }
+    public void validationResponseBodyGetListTag() {
+        List<Object> tags = res.jsonPath().getList("data");
+        assertThat(tags.get(0)).isNull();
+        for (int i = 1; i <= 20; i++) {
+            assertThat(tags.get(i)).isNotNull();
+            System.out.println(tags.get(i));
+        }
+
+
+    }
+
+
+
 
 }

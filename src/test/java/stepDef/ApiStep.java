@@ -61,4 +61,14 @@ public class ApiStep {
     public void validationResponseBodyPostUpdateData() {
         apiPage.validationResponseBodyPostUpdateData();
     }
+
+    @And("hit api get list tag")
+    public void hitApiGetListTag() {
+        apiPage.hitApiGetListTag();
+    }
+
+    @Then("validation response body get list tag")
+    public void validationResponseBodyGetListTag() {
+        apiPage.validationResponseBodyGetListTag();
+    }
 }
