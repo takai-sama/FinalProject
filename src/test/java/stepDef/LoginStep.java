@@ -21,14 +21,14 @@ public class LoginStep {
         loginPage.navigateToLoginPage();
     }
 
-    @And("user input username {string}")
+    @And("user input username {string} on login form")
     public void userInputUsername(String username) {
-        loginPage.inputUsername(username);
+        loginPage.inputWrongUsername(username);
     }
 
-    @And("user input password {string}")
+    @And("user input password {string} on login form")
     public void userInputPassword(String password) {
-        loginPage.inputPassword(password);
+        loginPage.inputWrongPassword(password);
     }
 
     @When("user click button login")
@@ -40,5 +40,20 @@ public class LoginStep {
     public void homePageIsOpenedAndWelcomeTextIsDisplayed() {
         loginPage.validateHomepageOpened();
         loginPage.welcomeText();
+    }
+
+    @And("user input username on login form")
+    public void userInputUsernameOnLoginForm() {
+        loginPage.inputUsername();
+    }
+
+    @And("user input password on login form")
+    public void userInputPasswordOnLoginForm() {
+        loginPage.inputPassword();
+    }
+
+    @Then("alert User does not exist is displayed and click ok")
+    public void alertUserDoesNotExistIsDisplayedAndClickOk() {
+        loginPage.validateWrongPassword();
     }
 }

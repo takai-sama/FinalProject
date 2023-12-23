@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static helper.utility.driver;
+import static helper.utility.randomInput;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,6 +20,7 @@ public class LoginPage {
     By loginButton2 = By.xpath("//*[@onclick = 'logIn()']");
     By welcomeText = By.id("nameofuser");
 
+
     public void goToWebsite(){
         driver.get("https://www.demoblaze.com");
     }
@@ -26,11 +28,22 @@ public class LoginPage {
     public void navigateToLoginPage(){
         driver.findElement(loginButton1).click();
     }
-    public void inputUsername(String username){
+    public void inputWrongUsername(String username){
         driver.findElement(userNameText).sendKeys(username);
+        System.out.println("username : "+username);
     }
-    public void inputPassword(String password){
+    public void inputWrongPassword(String password){
         driver.findElement(passwordText).sendKeys(password);
+        System.out.println("password : "+password);
+    }
+
+    public void inputUsername(){
+        driver.findElement(userNameText).sendKeys(randomInput);
+        System.out.println("username : "+randomInput);
+    }
+    public void inputPassword(){
+        driver.findElement(passwordText).sendKeys(randomInput);
+        System.out.println("password : "+randomInput);
     }
     public void clickLogin(){
         driver.findElement(loginButton2).click();
@@ -41,9 +54,18 @@ public class LoginPage {
     }
     public void welcomeText() {
         WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(3));
-        // presenceOfElementLocated condition
         w.until(ExpectedConditions.visibilityOfElementLocated(welcomeText));
         String welcome = driver.findElement(welcomeText).getText();
         assertThat(welcome).contains("Welcome");
+        System.out.println(welcome);
+    }
+
+    public void validateWrongPassword(){
+        WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(3));
+        w.until(ExpectedConditions.alertIsPresent());
+        String alertMessage = driver.switchTo().alert().getText();
+        System.out.println(alertMessage);
+        assertThat(alertMessage).contains("User does not exist.");
+        driver.switchTo().alert().accept();
     }
 }

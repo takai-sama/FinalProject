@@ -11,6 +11,7 @@ import java.time.Duration;
 
 public class utility {
     public static WebDriver driver;
+    public static final String randomInput = generateUsernamePassword();
     public static File getJSONSchemaFile (String JSONFile){
         return new File("src/test/java/helper/JSONSchemaData/"+JSONFile);
     }
@@ -21,6 +22,14 @@ public class utility {
         email = temp + "@testdata.com";
         return email;
     }
+    public static String generateUsernamePassword(){
+        String input = "";
+        String temp = RandomStringUtils.randomNumeric(10);
+        input= "user_"+temp;
+        return input;
+    }
+
+
 
     public static void startDriver() {
         ChromeOptions options = new ChromeOptions();
