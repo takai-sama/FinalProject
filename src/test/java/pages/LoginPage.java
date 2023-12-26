@@ -1,6 +1,5 @@
 package pages;
 
-import helper.Endpoint;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,7 +10,7 @@ import static helper.utility.driver;
 import static helper.utility.randomInput;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class LoginPage {
     By loginButton1 = By.id("login2");
@@ -38,12 +37,22 @@ public class LoginPage {
     }
 
     public void inputUsername(){
-        driver.findElement(userNameText).sendKeys(randomInput);
-        System.out.println("username : "+randomInput);
+        try {
+            driver.findElement(userNameText).sendKeys(randomInput);
+            System.out.println("username : "+randomInput);
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void inputPassword(){
-        driver.findElement(passwordText).sendKeys(randomInput);
-        System.out.println("password : "+randomInput);
+        try {
+            driver.findElement(passwordText).sendKeys(randomInput);
+            System.out.println("password : "+randomInput);
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void clickLogin(){
         driver.findElement(loginButton2).click();

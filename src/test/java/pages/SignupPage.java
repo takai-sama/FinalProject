@@ -7,10 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static helper.utility.driver;
-import static helper.utility.generateUsernamePassword;
 import static helper.utility.randomInput;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SignupPage {
     By signButton1 = By.id("signin2");
@@ -23,16 +21,26 @@ public class SignupPage {
         driver.findElement(signButton1).click();
     }
     public void inputUsername(){
-        driver.findElement(signUsernameText).sendKeys(randomInput);
-        System.out.println("Username : "+randomInput);
+        try {
+            driver.findElement(signUsernameText).sendKeys(randomInput);
+            System.out.println("Username : "+randomInput);
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void inputExistUsername(String username){
         driver.findElement(signUsernameText).sendKeys(username);
         System.out.println("Username : "+username);
     }
     public void inputPassword(){
-        driver.findElement(signPasswordText).sendKeys(randomInput);
-        System.out.println("password : "+randomInput);
+        try {
+            driver.findElement(signPasswordText).sendKeys(randomInput);
+            System.out.println("password : "+randomInput);
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void inputExistPassword(String password){
         driver.findElement(signPasswordText).sendKeys(password);
