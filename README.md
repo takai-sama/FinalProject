@@ -124,7 +124,6 @@ melakukan addtoCart pada salah satu produk (Samsung galaxy s6), lalu place order
 <img width="444" alt="image" src="https://github.com/takai-sama/FinalProject/assets/77669943/8c08763d-a96a-4f12-92ea-be45652c6568">
 
 
-<h3>Lihat Folder Output untuk hasil running</h3>
 
 
 
