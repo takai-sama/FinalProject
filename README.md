@@ -55,7 +55,7 @@ Hasil output lengkap berada di folder reports
 1. Create New Project dengan Intellij Idea dengan konfigurasi sebagai berikut :
 <img width="929" src="https://github.com/user-attachments/assets/2a009421-0f40-4efa-a005-8c7a05f77cd7">
 
-2. Pada file build.gradle, bagian depedencies. masukan beberapa depedency berikut
+2. Pada file build.gradle, bagian depedencies. masukan beberapa depedency (untuk api testing) berikut
  
 ```java
   dependencies {
@@ -67,6 +67,30 @@ Hasil output lengkap berada di folder reports
     
 }
 ```
+io.rest-assured : library java yang digunakan untuk API Restful, seperti mengirim method GET dan POST, menambahkan header, parameter dan body request serta dapat diintegrasi dengan framework test seperti JUnit dan TestNG
+io.cucumber : library java yang digunakan untuk membuat scenario dengan gherkin, menerapkan pendekatan BDD
+org.json : library untuk melakukan input payload menggunakan JSONObject
+json-path : library yang digunakan untuk membaca letak file json yg akan dijadikan validasi
+json-schema-validator : library untuk schema validator dengan file yang dibaca json-path
+
+3. buat folder helper, definisikan file dengan nama endpoint.java. fungsinya untuk mendefine endpoint apa saja yang akan digunakan nanti (akan dipanggil)
+![image](https://github.com/user-attachments/assets/4b345323-fd59-45c2-9839-62b7dc314d93)
+
+
+4. di folder helper, buat file models.java, fungsinya untuk mensetup fungsi/method untuk setupheader, definisi method http request seperti get, post menggunkaan rest assured. method di models akan dipanggil di page nanti
+![image](https://github.com/user-attachments/assets/f798b92e-a170-49cf-9665-45e098379cd9)
+
+5. buat folder page, buat file dengan nama apipage.java , berisi method-method yang akan digunakan / dipanggil di step def. file di page ini seperti jembatan antara konfigurasi dengan stepdef. isinya seperti prepareURL() dimana baseURL di helper.Endpoint di panggil disini dan akan digunakan stepdef untuk "Given"nya
+![image](https://github.com/user-attachments/assets/e4abf7dc-f812-4d20-ab71-9773dae65937)
+
+6. buat folder feature, definiskan api.feature. ini adalah file cucumber yg berisi bahasa gherkin. buat skenario disini. dari sini bisa buat stepdef otomatis dengan "alt+enter" lalu "create step definition" otomatis mengcreate folder stepDef dan file stepfile (Apistep.java)
+![image](https://github.com/user-attachments/assets/fa4b8e1f-c90e-47b1-bd56-e69013daa8ee)
+
+
+7. di folder stepDef, definisikan stepfile yg tadi otomatis terbuat (apistep) dengan memanggil method dari folder page, yaitu apipage.java (integrasikan)
+![image](https://github.com/user-attachments/assets/2abe6325-e6d3-4ece-b07c-55af163a780d)
+
+
 
 
 
