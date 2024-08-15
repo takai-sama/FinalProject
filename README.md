@@ -50,6 +50,27 @@ Hasil output lengkap berada di folder reports
 
 <img width="913" alt="image" src="https://github.com/takai-sama/FinalProject/assets/77669943/dc1fa5c8-1716-499c-bd4a-d45b9817789f">
 
+<h2>Tutorial</h2>
+<h3>Automation API</h3>
+1. Create New Project dengan Intellij Idea dengan konfigurasi sebagai berikut :
+<img width="929" src="https://github.com/user-attachments/assets/2a009421-0f40-4efa-a005-8c7a05f77cd7">
+
+2. Pada file build.gradle, bagian depedencies. masukan beberapa depedency berikut
+ 
+```java
+  dependencies {
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.4.0'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.15.0'
+    implementation group: 'org.json', name: 'json', version: '20231013'
+    testImplementation group: 'io.rest-assured', name: 'json-path', version: '5.3.0'
+    testImplementation group: 'io.rest-assured', name: 'json-schema-validator', version: '5.3.0'
+    
+}
+```
+
+
+
+
 
 
 
