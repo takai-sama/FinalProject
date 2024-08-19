@@ -90,6 +90,16 @@ json-schema-validator : library untuk schema validator dengan file yang dibaca j
 7. di folder stepDef, definisikan stepfile yg tadi otomatis terbuat (apistep) dengan memanggil method dari folder page, yaitu apipage.java (integrasikan)
 ![image](https://github.com/user-attachments/assets/2abe6325-e6d3-4ece-b07c-55af163a780d)
 
+8. buat folder runner, buat file runner (ApiRunner.java) untk menjalankan tes dengan cucumber,
+   
+![image](https://github.com/user-attachments/assets/ac759b05-5fc8-473e-8f30-6c1644445f88)
+plugin pretty : agar saat menjalankan tes di log menjadi lebih terstruktur
+glue : unutk menaruh tempat step definition (nama foldernya)
+features = nama folder tempat menaruh tes scenario dengan file cucumber
+tags : untuk menjalankan tes yang hanya memiliki tag yang sudah ditentukan di file cucumber
+monokrom : Ini memastikan keluaran konsol tanpa format warna apa pun, sehingga lebih mudah dibaca di beberapa lingkungan.
+
+
 
 
 
